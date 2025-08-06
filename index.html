@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Store - Premium Products Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for animations and enhancements */
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .category-btn.active {
+            background-color: #3b82f6;
+            color: white;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-umbrella-beach text-3xl text-blue-500"></i>
+                <h1 class="text-2xl font-bold text-gray-800">Bali Store</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition">
+                    <i class="fas fa-user mr-2"></i>Login
+                </button>
+                <button class="relative">
+                    <i class="fas fa-shopping-cart text-2xl text-gray-700"></i>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-400 to-purple-500 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-4">Discover Premium Products</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Shop the best selection of home furniture, pet supplies, and more at Bali Store</p>
+            <div class="relative max-w-md mx-auto">
+                <input type="text" placeholder="Search products..." class="w-full py-3 px-4 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Categories -->
+        <div class="mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-gray-800">Shop by Category</h2>
+            <div class="flex flex-wrap gap-3">
+                <button class="category-btn active px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition" data-category="all">All Products</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition" data-category="furniture">Home Furniture</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition" data-category="pets">Pet Supplies</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition" data-category="mobile">Mobile Accessories</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition" data-category="car">Car Parts</button>
+                <button class="category-btn px-4 py-2 rounded-full bg-gray-200 hover:bg-blue-500 hover:text-white transition" data-category="beauty">Health & Beauty</button>
+            </div>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="products-container">
+            <!-- Products will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Bali Store</h3>
+                    <p class="text-gray-400">Your one-stop shop for premium products from around the world.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">FAQs</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Shipping Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Returns & Refunds</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <p class="mt-4 text-gray-400">Subscribe to our newsletter</p>
+                    <div class="mt-2 flex">
+                        <input type="email" placeholder="Your email" class="px-3 py-2 text-gray-800 rounded-l focus:outline-none w-full">
+                        <button class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-r"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Bali Store. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = [
+            // Home Furniture
+            {
+                id: 1,
+                name: "Teak Wood Coffee Table",
+                price: 249.99,
+                image: "https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "furniture",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 2,
+                name: "Rattan Lounge Chair",
+                price: 179.50,
+                image: "https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "furniture",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 3,
+                name: "Bamboo Bookshelf",
+                price: 129.99,
+                image: "https://images.unsplash.com/photo-1592078615290-033ee584e267?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "furniture",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            
+            // Pet Supplies
+            {
+                id: 4,
+                name: "Premium Dog Bed",
+                price: 59.99,
+                image: "https://images.unsplash.com/photo-1591769225440-8ad4326f6cdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "pets",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 5,
+                name: "Automatic Cat Feeder",
+                price: 89.95,
+                image: "https://images.unsplash.com/photo-1588943211346-0905a1b76307?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "pets",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 6,
+                name: "Pet Grooming Kit",
+                price: 34.99,
+                image: "https://images.unsplash.com/photo-1594149929911-78975a43d4f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "pets",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            
+            // Mobile Accessories
+            {
+                id: 7,
+                name: "Wireless Charging Pad",
+                price: 24.99,
+                image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "mobile",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 8,
+                name: "Bluetooth Headphones",
+                price: 79.99,
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "mobile",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 9,
+                name: "Phone Stand Holder",
+                price: 12.49,
+                image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "mobile",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            
+            // Car Parts
+            {
+                id: 10,
+                name: "Car Phone Mount",
+                price: 19.99,
+                image: "https://images.unsplash.com/photo-1601758003122-53c40e686a19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "car",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 11,
+                name: "LED Headlight Bulbs",
+                price: 45.99,
+                image: "https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "car",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 12,
+                name: "Car Vacuum Cleaner",
+                price: 39.95,
+                image: "https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "car",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            
+            // Health & Beauty
+            {
+                id: 13,
+                name: "Facial Steamer",
+                price: 29.99,
+                image: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "beauty",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 14,
+                name: "Electric Toothbrush",
+                price: 49.95,
+                image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "beauty",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 15,
+                name: "Aromatherapy Diffuser",
+                price: 22.99,
+                image: "https://images.unsplash.com/photo-1601000938257-1aed3a1e1ad4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "beauty",
+                amazonLink: "#",
+                ebayLink: "#"
+            },
+            {
+                id: 16,
+                name: "Massage Gun",
+                price: 89.99,
+                image: "https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+                category: "beauty",
+                amazonLink: "#",
+                ebayLink: "#"
+            }
+        ];
+
+        // Function to render products
+        function renderProducts(category = 'all') {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '';
+            
+            const filteredProducts = category === 'all' 
+                ? products 
+                : products.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card bg-white rounded-lg overflow-hidden shadow-md fade-in';
+                productCard.innerHTML = `
+                    <div class="h-48 overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2 text-gray-800">${product.name}</h3>
+                        <p class="text-blue-600 font-bold text-xl mb-4">$${product.price.toFixed(2)}</p>
+                        <div class="flex space-x-2">
+                            <a href="${product.amazonLink}" class="flex-1 bg-yellow-400 hover:bg-yellow-500 text-black py-2 px-4 rounded text-center text-sm font-medium transition">
+                                <i class="fab fa-amazon mr-1"></i> Amazon
+                            </a>
+                            <a href="${product.ebayLink}" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded text-center text-sm font-medium transition">
+                                <i class="fab fa-ebay mr-1"></i> eBay
+                            </a>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+        // Initial render
+        document.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            
+            // Category filter functionality
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const category = btn.dataset.category;
+                    renderProducts(category);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
